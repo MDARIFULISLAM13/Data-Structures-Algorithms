@@ -1,8 +1,9 @@
+
 /**
  *
  * Author : Md.Ariful Islam
- * Date : 05-08-2024
- * time : 04:23:08
+ * Date : 07-08-2024
+ * time : 23:48:18
  *
  **/
 #include <bits/stdc++.h>
@@ -15,36 +16,72 @@ using ll = long long int;
 #define du double
 #define ull unsigned long long
 #define vec vector<ll>
-const int mx = 1000000;
-bitset<mx> ip;
+const int lm = 1000000;
+bitset<lm> pi;
 vector<int> p;
 void arif()
 {
-    int lim = 1000000;
 
-    for (int i = 3; i <= lim; i += 2)
+    p.push_back(2);
+    for (int i = 3; i <= lm; i += 2)
     {
-        ip[i] = true;
+        pi[i] = true;
     }
-    for (int i = 3; i <= sqrt(lim); i += 2)
+    for (int i = 3; i <= sqrt(lm); i += 2)
     {
-        if (ip[i] == true)
+        if (pi[i] == true)
         {
-            for (int j = i + i; j <= lim; j += i)
+            for (int j = i + i; j <= lm; j += i)
             {
-                ip[j] = false;
+                pi[j] = false;
             }
         }
     }
-    p.push_back(1);
-    p.push_back(2);
-    for (int i = 3; i <= mx; i += 2)
+    for (int i = 3; i <= lm; i += 2)
     {
-        if (ip[i] == true)
+        if (pi[i] == true)
         {
             p.push_back(i);
         }
     }
+}
+void ans(int n)
+{
+    int h = p.size();
+    int l = 0;
+    int pos = 0;
+    while (l <= h)
+    {
+        int m = (l + h) / 2;
+        if (p[m] > n)
+        {
+            h = m - 1;
+        }
+        else
+        {
+            l = m + 1;
+            pos = m;
+        }
+    }
+    l = 0;
+    while (l <= pos)
+    {
+        if (p[l] + p[pos] == n)
+        {
+            cout << n << " = " << p[l] << " + " << p[pos] << endl;
+            return;
+            break;
+        }
+        else if (p[l] + p[pos] > n)
+        {
+            pos--;
+        }
+        else
+        {
+            l++;
+        }
+    }
+    cout << "Goldbach's conjecture is wrong.\n";
 }
 int main()
 {
@@ -58,28 +95,9 @@ int main()
         cin >> n;
         if (n == 0)
         {
-            return 0;
+            break;
         }
-        int h = n / 2, l = 0;
-        for (int i = h; i >= 0; i--)
-        {
-            if (p[i] <= n)
-            {
-                h = i;
-                break;
-            }
-        }
-        cout << p[h];
-        // while (true)
-        // {
-        //     if (p[h] + p[l] == n)
-        //     {
-        //         cout << n << " = " << l << " + " << h << endl;
-        //         break;
-        //     }
-        //     else if ()
-        // }
+        ans(n);
     }
-
     return 0;
 }
