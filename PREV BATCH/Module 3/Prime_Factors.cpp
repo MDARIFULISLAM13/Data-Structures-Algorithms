@@ -1,8 +1,8 @@
 /**
  *
  * Author : Md.Ariful Islam
- * Date : 08-08-2024
- * time : 22:25:00
+ * Date : 20-08-2024
+ * time : 04:53:23
  *
  **/
 #include <bits/stdc++.h>
@@ -15,23 +15,18 @@ using ll = long long int;
 #define du double
 #define ull unsigned long long
 #define vec vector<ll>
-
+const int lm = 1e7 + 123;
+bitset<lm> ip;
+vector<int> p;
+void arif(int n)
+{
+    p.push_back(2);
+}
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-
-    int x, y;
-    cin >> x >> y;
-    if (x > y)
-    {
-        cout << "YES\n";
-    }
-    else
-    {
-        cout << "No\n";
-    }
 
     return 0;
 }
