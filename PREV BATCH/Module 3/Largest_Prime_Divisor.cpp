@@ -43,63 +43,50 @@ void arif(int n)
         }
     }
 }
-vector<int> primeFactors(ll n)
-{
-    vector<int> factors;
-
-    for (auto i : p)
-    {
-
-        if (1LL * i * i > n)
-            break;
-
-        if (n % i == 0)
-        {
-            while (n % i == 0)
-            {
-                factors.push_back(i);
-                n /= i;
-            }
-        }
-    }
-
-    if (n > 1)
-    {
-        factors.push_back(n);
-    }
-
-    return factors;
-}
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    arif(1e7 + 123);
-    ll v;
-    while ((true))
+    arif(lm);
+    ll n;
+    while (1)
     {
-        cin >> v;
-        if (v == 0)
+        cin >> n;
+        if (n == 0)
         {
             return 0;
         }
-        bool isNeg = false;
-        if (v < 0)
+        ll mx = 0;
+        ll v = n;
+        for (ll i : p)
         {
-            isNeg = true;
-            v *= -1;
+            if (1ll * i * i > n)
+            {
+
+                break;
+            }
+            if (n % i == 0)
+            {
+                mx = max(mx, i);
+                while (n % i == 0)
+                {
+                    n /= i;
+                }
+            }
         }
-        vector<int> factors = primeFactors(v);
-        if (isNeg)
+        if (n > 1 && n != v)
         {
-            v *= -1;
-            factors.insert(factors.begin(), -1);
+            mx = max(n, mx);
         }
-        cout << v << " = " << factors[0];
-        for (int i = 1; i < factors.size(); i++)
-            cout << " x " << factors[i];
-        cout << endl;
+        if (mx == 0)
+        {
+            cout << "-1\n";
+        }
+        else
+        {
+            cout << mx << endl;
+        }
     }
 
     return 0;
