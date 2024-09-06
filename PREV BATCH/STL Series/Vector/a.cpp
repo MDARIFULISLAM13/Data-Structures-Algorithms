@@ -22,8 +22,20 @@ int main()
     cin.tie(NULL);
     cout.tie(NULL);
 
-    int a = 'm';
-    cout << a;
+    vector<int> a = {2, 2, 3, 4, 6, 8, 8, 2, 2};
+    unique(a.begin(), a.end());
+    for (auto i : a)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << max_element(a.begin(), a.end()) - a.begin() << endl;
+    cout << *max_element(a.begin(), a.end()) << endl;
+
+    string s = "Ariful Islam Arif";
+    string ss = "Arif";
+    copy(s.begin() + 6, s.begin() + 12, back_inserter(ss));
+    cout << ss << endl;
 
     return 0;
 }
