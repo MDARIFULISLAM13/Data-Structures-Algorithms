@@ -1,29 +1,28 @@
-/**
- *
- * Author : Md.Ariful Islam
- * Date : 12-09-2024
- * time : 14:25:05
- *
- **/
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long int;
-#define yes cout << "YES\n";
-#define no cout << "NO\n";
-#define endl "\n";
-#define ft float
-#define du double
-#define ull unsigned long long
-#define vec vector<ll>
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-
-    ll n;
+    int n;
     cin >> n;
+    string list[n];
 
+    // Read the list of words
+    for (int i = 0; i < n; i++)
+        cin >> list[i];
+    map<string, int> m;
+    for (auto s : list)
+    {
+        m[s]++;
+    }
+    int ans = 0;
+    for (auto i : m)
+    {
+        if (i.second >= 2)
+        {
+            ans++;
+        }
+    }
+    cout << ans;
     return 0;
 }
