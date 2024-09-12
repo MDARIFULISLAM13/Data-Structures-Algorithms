@@ -2,7 +2,7 @@
  *
  * Author : Md.Ariful Islam
  * Date : 13-09-2024
- * time : 03:44:32
+ * time : 04:04:32
  *
  **/
 #include <bits/stdc++.h>
@@ -22,23 +22,16 @@ int main()
     cin.tie(NULL);
     cout.tie(NULL);
 
-    int n, m;
-    cin >> n >> m;
-    map<string, string> mp;
-    while (n--)
+    int t;
+    cin >> t;
+    vector<ll> box;
+    while (t--)
     {
-        string s, ss;
-        cin >> s >> ss;
-        mp[ss] = s;
+        ll x;
+        cin >> x;
+        box.push_back(x);
     }
-    while (m--)
-    {
-        string s, ss;
-        cin >> s >> ss;
-        cout << s << " " << ss << " #";
-        ss.pop_back();
-        cout << mp[ss] << endl;
-    }
+    sort(box.begin(), box.end());
 
     return 0;
 }
