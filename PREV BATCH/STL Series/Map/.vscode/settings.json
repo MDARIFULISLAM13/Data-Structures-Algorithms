@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iosfwd": "cpp"
     },
     "files.autoSave": "onWindowChange",
     "files.autoSaveWorkspaceFilesOnly": true,
