@@ -27,7 +27,7 @@ int main()
     id["Akhi"] = 2;
     id["Rupa"] = 3;
     id["Araf"] = 4;
-    cout << id["Arif"];
+    cout << id["Araf"];
 
     return 0;
 }
