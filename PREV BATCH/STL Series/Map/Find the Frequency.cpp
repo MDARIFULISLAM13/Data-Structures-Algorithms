@@ -18,7 +18,7 @@ int main()
     int ans = 0;
     for (auto i : m)
     {
-        if (i.second >= 2)
+        if (i.second == 2)
         {
             ans++;
         }
