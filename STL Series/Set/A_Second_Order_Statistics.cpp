@@ -1,8 +1,8 @@
 /**
  *
  * Author : Md.Ariful Islam
- * Date : 13-09-2024
- * time : 04:04:32
+ * Date : 16-09-2024
+ * time : 00:12:16
  *
  **/
 #include <bits/stdc++.h>
@@ -22,16 +22,22 @@ int main()
     cin.tie(NULL);
     cout.tie(NULL);
 
-    int t;
-    cin >> t;
-    vector<ll> box;
-    while (t--)
+    set<int> s;
+    int n;
+    cin >> n;
+    while (n--)
     {
-        ll x;
-        cin >> x;
-        box.push_back(x);
+        int v;
+        cin >> v;
+        s.insert(v);
     }
-    sort(box.begin(), box.end());
-
+    if (s.size() < 2)
+    {
+        cout << "NO\n";
+        return 0;
+    }
+    auto it = s.begin();
+    it++;
+    cout << *it;
     return 0;
 }
