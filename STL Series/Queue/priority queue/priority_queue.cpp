@@ -33,15 +33,24 @@ int main()
     }
 
     //for increasing order
-    priority_queue<int, vector<int>, greater<int>>a;
-    a.push(1);
-    a.push(2);
-    a.push(3);
+    priority_queue<int, vector<int>, greater<int>>aa;
+    aa.push(1);
+    aa.push(2);
+    aa.push(3);
 
-    while (!a.empty()) {
-        cout << a.top() << endl;
-        a.pop();
+    while (!aa.empty()) {
+        cout << aa.top() << endl;
+        aa.pop();
     }
 
+    priority_queue<pair<int, int>>p;
+    p.push({ 1,1 });
+    p.push({ 1,2 });
+    p.push({ 2,3 });
+    p.push({ 2,1 });
+    while (!p.empty()) {
+        cout << p.top().first << " " << p.top().second << endl;
+        p.pop();
+    }
     return 0;
 }
