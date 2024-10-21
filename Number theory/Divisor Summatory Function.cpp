@@ -30,8 +30,10 @@ int main()
     }
     ans *= 2;
     ans += sqrt(n);
+    // for (int i = 1;i <= n;i++) {
+    //     ans += (n / i);
+    // }
     cout << ans;
-
 
     return 0;
 }
