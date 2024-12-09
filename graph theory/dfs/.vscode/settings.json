@@ -9,6 +9,7 @@
         "system_error": "cpp",
         "array": "cpp",
         "regex": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "iostream": "cpp"
     }
 }
