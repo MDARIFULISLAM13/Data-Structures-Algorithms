@@ -1,39 +1,83 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ll = long long int;
+#define yes cout << "YES\n";
+#define no cout << "NO\n";
+#define endl "\n";
+#define ft float
+#define du double
+#define ull unsigned long long
+#define vec vector<ll>
+#define mem(dp,i) memset(dp,i,sizeof(dp));
+
+const int mx = 110;
+
+vector<pair<int, int>> road[mx];
+bool ck[110] = { 0 };
+int cost = 0;
+int cost1 = 0;
+int f = 0;
+int s = 0;
+bool f1 = 0;
+void dfs(int x, int abba) {
+
+    ck[x] = 1;
+    for (auto& i : road[x]) {
+        int c = i.second;
+        int n = i.first;
+
+        if (ck[n] == true && n != abba && n == f) {
+            if (f1 == 0) {
+                cost1 += c;
+            }
+            else {
+                cost += c;
+            }
+            // cout << x << " " << i.first << " " << n << " " << i.second << endl;
+            // cout << x << endl;
+
+        }
+        else if (ck[n] == 0) {
+            // cout << x << " " << i.first << " " << n << " " << i.second << endl;
+            if (f1 == 0) {
+                cost1 += c;
+            }
+            else {
+                cost += c;
+            }
+            dfs(n, x);
+        }
+    }
+}
+
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 
     int n;
     cin >> n;
 
-    vector<tuple<int, int, int>> roads(n); // Stores road info as tuples (a, b, c)
-    int total_cost_clockwise = 0, total_cost_counterclockwise = 0;
 
-    // Input roads
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         int a, b, c;
         cin >> a >> b >> c;
-        roads[i] = make_tuple(a, b, c); // Use make_tuple to create tuples
+        f = a, s = b;
+
+
+        road[a].push_back({ b, 0 });
+        road[b].push_back({ a, c });
     }
 
-    // Calculate clockwise cost
-    for (const auto& road : roads) {
-        int a, b, c;
-        tie(a, b, c) = road; // Use tie to unpack the tuple
-        total_cost_clockwise += c;
-    }
 
-    // Calculate counterclockwise cost
-    for (const auto& road : roads) {
-        int a, b, c;
-        tie(a, b, c) = road;
-        total_cost_counterclockwise += c; // Same cost calculation for demonstration
-    }
 
-    // Output the minimum of the two costs
-    cout << min(total_cost_clockwise, total_cost_counterclockwise) << "\n";
+    dfs(f, -1);
+    f = s;
+    f1 = 1;
+    memset(ck, 0, sizeof(ck));
+    dfs(f, -1);
 
+    cout << min(cost, cost1);
     return 0;
 }
