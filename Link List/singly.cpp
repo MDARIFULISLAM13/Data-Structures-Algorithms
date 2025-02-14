@@ -98,6 +98,17 @@ public:
 
         node* new_node = new node(id, name);
 
+        node* temp = head;
+
+        while (temp->id != num && temp != NULL) {
+            temp = temp->next_node;
+        }
+        if(temp==NULL){
+        return;
+         }
+
+        new_node->next_node = temp->next_node;
+        temp->next_node = new_node;
     }
 
 };
