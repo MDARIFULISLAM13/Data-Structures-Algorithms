@@ -104,7 +104,7 @@ public:
         node *temp = head;
         while (temp != NULL)
         {
-            cout << temp->id << " " << temp->name << "   " << temp->next_node << endl;
+            cout << temp->id << " " << temp->name << endl;
             temp = temp->next_node;
         }
     }
@@ -128,11 +128,26 @@ public:
         new_node->next_node = temp->next_node;
         temp->next_node = new_node;
     }
+    // reverse a link list
+
+    void reverse()
+    {
+        node *pre = NULL;
+
+        node *next = NULL;
+        while (head != tail)
+        {
+            pre = head;
+            head = head->next_node;
+            pre->next_node = next;
+            next = pre;
+        }
+        head->next_node = next;
+    }
 };
 
 int main()
 {
-
     arif ar;
     ar.push_back(3, "a");
     ar.push_back(5, "b");
@@ -141,7 +156,8 @@ int main()
     ar.push_front(1, "B");
     ar.insert(3, 4, "D");
     ar.print();
-
+    ar.reverse();
+    ar.print();
 
     return 0;
 }
