@@ -135,14 +135,14 @@ public:
         node *pre = NULL;
         node *next = NULL;
 
-        while (head != NULL) 
+        while (head != NULL)
         {
             pre = head;
             head = head->next_node;
             pre->next_node = next;
             next = pre;
         }
-
+ 
         head = pre;
     }
 };
