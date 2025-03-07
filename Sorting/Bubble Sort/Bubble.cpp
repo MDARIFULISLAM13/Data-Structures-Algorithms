@@ -1,10 +1,15 @@
 /**
  *
  * Author : Md.Ariful Islam
- * Date : 19-09-2024
- * time : 02:45:36
+ * Date : 08-03-2025
+ * time : 05:03:05
+ * Problem Name : Bubble
  *
  **/
+#ifdef __GNUC__
+#pragma GCC optimize("O3")
+#pragma GCC target("sse4")
+#endif
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long int;
@@ -15,37 +20,35 @@ using ll = long long int;
 #define du double
 #define ull unsigned long long
 #define vec vector<ll>
+#define mem(dp, i) memset(dp, i, sizeof(dp));
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
+
     int n;
     cin >> n;
-    int arr[n];
+    int a[n];
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i];
+        cin >> a[i];
     }
-    int count = 1;
-    while (count < n)
+    for (int i = 0; i < n; i++)
     {
-        for (int i = 0; i < n - count; i++)
+        for (int j = 0; j < n - i - 1; j++)
         {
-            if (arr[i] > arr[i + 1])
+            if (a[j] > a[j + 1])
             {
-                int temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
+                swap(a[j], a[j + 1]);
             }
         }
-
-        count++;
     }
-    for (int j = 0; j < n; j++)
+    for (int i = 0; i < n; i++)
     {
-        cout << arr[j] << " ";
+        cout << a[i] << " ";
     }
+
     return 0;
 }
