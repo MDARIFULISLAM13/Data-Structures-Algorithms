@@ -57,6 +57,48 @@ public:
         }
     }
 
+    // Deletion
+    void pop_back()
+    {
+        if (head == NULL)
+        {
+            return;
+        }
+
+        if (head == tail)
+        {
+            delete head;
+            head = tail = NULL;
+            return;
+        }
+        node *temp = head;
+        while (temp->next != tail)
+        {
+            temp = temp->next;
+        }
+
+        temp->next = NULL;
+        delete tail;
+        temp = tail;
+    }
+    void pop_front()
+    {
+        if (head == NULL)
+        {
+            return;
+        }
+
+        if (head == tail)
+        {
+            delete head;
+            head = tail = NULL;
+            return;
+        }
+        node *temp = head;
+        head = head->next;
+        delete temp;
+    }
+
     // Traversal
     void print()
     {
@@ -77,6 +119,8 @@ int main()
     li.push_back(4);
     li.push_back(5);
     li.push_front(2);
+    li.pop_back();
+    li.pop_front();
 
     li.print();
 
