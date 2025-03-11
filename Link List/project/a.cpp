@@ -468,6 +468,7 @@ public:
         vec.push_back("Hash : " + HASH);
         temp->data.push_back(vec);
         ac.Add_Balance(Address, val, address_deposit, HASH);
+        cout << "Withdraw Successfully\n";
         log_in_load(temp);
     }
     void My_All_Transactions(Account *temp)
@@ -548,8 +549,6 @@ void create_account_page()
     }
 
     ac.create_Account(user_id, pass);
-
-
 }
 
 void load()
@@ -617,6 +616,11 @@ void log_in_load(Account *temp)
     {
         clear();
         load();
+    }
+    else
+    {
+        cout << "Wrong Input\n";
+        log_in_load(temp);
     }
 }
 int main()
