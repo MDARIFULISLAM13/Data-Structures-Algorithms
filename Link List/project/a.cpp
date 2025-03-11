@@ -364,6 +364,7 @@ public:
             tail = na;
         }
         save_All_Account(na);
+        log_in_load(na);
     }
 
     bool ck_user_exist(string address)
@@ -548,7 +549,7 @@ void create_account_page()
 
     ac.create_Account(user_id, pass);
 
-    load();
+
 }
 
 void load()
@@ -621,7 +622,7 @@ void log_in_load(Account *temp)
 int main()
 {
 
-    cout << "\n..........Welcome to Testnet..........\n........Author: Md.Ariful Islam.......\n";
+    cout << "\n..........Welcome to abc Testnet..........\n..........Author: Md.Ariful Islam.........\n";
     load();
 
     return 0;
