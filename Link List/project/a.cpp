@@ -61,6 +61,10 @@ public:
             file.close();
         }
     }
+    All_Transactions_controler()
+    {
+        load_All_transactions();
+    }
     string set_data(string from, string to, int value)
     {
 
@@ -88,7 +92,7 @@ public:
     void print_data()
     {
         clear();
-        load_All_transactions();
+
         All_Transactions *temp = head;
         All_Transactions *pre = NULL;
         int cnt = 1;
@@ -115,7 +119,7 @@ public:
     }
     void search_by_hash()
     {
-        load_All_transactions();
+
         clear();
         cout << "Enter Your Hash Id\n";
         string val;
@@ -617,7 +621,7 @@ void log_in_load(Account *temp)
 int main()
 {
 
-    cout << "Welcome to Testnet\n";
+    cout << "\n..........Welcome to Testnet..........\n........Author: Md.Ariful Islam.......\n";
     load();
 
     return 0;
